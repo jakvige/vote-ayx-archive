@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏体育 · 专题页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f8f9fc;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1e293b;
+            line-height: 1.7;
+            padding: 0 1.25rem;
+        }
+
+        .page-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 0 4rem;
+        }
+
+        /* hero 横幅 */
+        .hero {
+            background: linear-gradient(145deg, #edf2f7 0%, #e2e8f0 100%);
+            border-radius: 48px 48px 24px 24px;
+            padding: 3.5rem 2.5rem 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            color: #475569;
+            max-width: 520px;
+            margin: 0 auto 1.8rem;
+            font-weight: 350;
+        }
+
+        .hero .hero-note {
+            font-size: 0.9rem;
+            color: #64748b;
+            border-top: 1px solid rgba(100, 116, 139, 0.15);
+            padding-top: 1.5rem;
+            margin-top: 1.2rem;
+            display: inline-block;
+        }
+
+        /* 正文与标题层级 */
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 450;
+            letter-spacing: -0.01em;
+            margin: 2.8rem 0 1rem;
+            color: #0f172a;
+            border-left: 4px solid #94a3b8;
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 420;
+            margin: 2rem 0 0.6rem;
+            color: #1e293b;
+        }
+
+        p {
+            margin: 1rem 0 1.4rem;
+            font-size: 1rem;
+            color: #334155;
+        }
+
+        /* 卡片风格：极简留白 */
+        .insight-card {
+            background: #ffffff;
+            padding: 1.8rem 2rem;
+            border-radius: 20px;
+            margin: 2.4rem 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+            border: 1px solid #eef2f6;
+        }
+
+        .insight-card ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0.8rem 0 0.2rem;
+        }
+
+        .insight-card li {
+            padding: 0.4rem 0 0.4rem 1.8rem;
+            position: relative;
+            font-size: 0.98rem;
+            color: #334155;
+        }
+
+        .insight-card li::before {
+            content: "·";
+            position: absolute;
+            left: 0.4rem;
+            color: #64748b;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* 引述 / 提示条 */
+        .pull-quote {
+            background: #f1f5f9;
+            border-radius: 32px;
+            padding: 2rem 2.2rem;
+            margin: 2rem 0;
+            font-style: normal;
+            border-left: 0;
+            color: #1e293b;
+            font-size: 1.05rem;
+            line-height: 1.65;
+        }
+
+        .pull-quote strong {
+            font-weight: 550;
+            color: #0f172a;
+        }
+
+        /* FAQ 摘要样式 */
+        .faq-mini {
+            margin: 2.8rem 0 1.2rem;
+            background: transparent;
+            border-top: 1px solid #dce2e9;
+            padding-top: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.2rem;
+            color: #1e293b;
+        }
+
+        .faq-item .a {
+            color: #475569;
+            padding-left: 0.5rem;
+            border-left: 2px solid #cbd5e1;
+            padding-left: 1rem;
+            font-size: 0.95rem;
+        }
+
+        a {
+            color: #1e293b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #94a3b8;
+            transition: text-decoration-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #0f172a;
+            text-decoration-color: #0f172a;
+        }
+
+        /* 页尾 */
+        .page-footer {
+            margin-top: 3.8rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.9rem;
+            color: #64748b;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .page-footer .inline-link {
+            color: #1e293b;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 520px) {
+            .page-wrap {
+                padding: 1.8rem 0 3rem;
+            }
+
+            .hero {
+                padding: 2rem 1.2rem 2rem;
+                border-radius: 32px 32px 16px 16px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+                padding-left: 0.75rem;
+            }
+
+            .insight-card {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .pull-quote {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 首页横幅 -->
+    <div class="hero">
+        <h1>对照·查询·延伸</h1>
+        <div class="subhead">从数据到现场，从规则到趋势——爱游戏体育的基础阅读视角</div>
+        <div class="hero-note">专题 · 2025</div>
+    </div>
+
+    <!-- 第一段：背景说明 —— 日常查询的起点 -->
+    <p>在日常关注体育动态时，我们常常需要一份能够快速验证细节的底本：赛制沿革、队伍构成、赛季节点、术语对照。这些信息零散地分布在报道、档案和讨论中，而一个结构清晰的索引页面，恰恰可以成为上述查询的起点。也正是出于这种整理习惯，才有了围绕<a href="https://go-igamesport.com">爱游戏体育</a>展开的页面——它并非一份面面俱到的百科，而是一种更接近“工作案头”的参考框架。</p>
+
+    <!-- 第二段：三段自然介绍之一 —— 对照阅读 -->
+    <h2>对照：版本与规则</h2>
+    <p>体育项目的规则文本往往经历多次修订，不同赛季、不同联盟之间可能存在细微差异。例如足球越位条款的措辞演变、篮球进攻时限的调整历史，这些内容在官方文档中散落分布。通过纵向与横向的对照，可以更准确地理解当下比赛的判罚逻辑。<br>
+    在整理这些对照条目时，我们倾向于保留原文表述与生效年份，同时标注主要变动点，方便快速定位差异。</p>
+
+    <!-- 引入一个极简卡片表示特点 -->
+    <div class="insight-card">
+        <h3 style="margin-top:0; font-weight:450;">常见对照类型</h3>
+        <ul>
+            <li>竞赛规程版本（年度对比）</li>
+            <li>积分与晋级规则（不同赛事体系）</li>
+            <li>装备与场地标准（国际联合会 vs 地方联赛）</li>
+            <li>停赛与纪律条款（纵向修订记录）</li>
+        </ul>
+    </div>
+
+    <h2>延伸：术语与背景</h2>
+    <p>每一场比赛背后都有一套专业术语体系。以“越位”、“争球”、“换人窗口”、“技术暂停”等概念为例，不同运动项目对同一词汇可能有完全不同的定义。更广泛的延伸阅读涉及项目发展史、代表性战术阶段以及关键规则变更的动因。<br>
+    在浏览过程中，我们尝试将术语解释与对应的赛事场景联系起来——例如某次规则修改直接影响了某届锦标赛的攻防节奏。这类关联有助于将孤立的知识点编织成可理解的脉络。</p>
+
+    <!-- 使用 pull-quote 作为第三段的自然引出 -->
+    <div class="pull-quote">
+        <strong>一个可能的阅读路径：</strong> 先通过规则对照确认基本框架，再借助术语延伸理解具体表述，最后回到赛事背景中验证自己的推论。这种循环方式适合日常积累，也适合赛前准备。
+    </div>
+
+    <!-- 第三段：从日常使用角度讲场景 -->
+    <h2>场景：从浏览到归纳</h2>
+    <p>不论是赛前快速浏览阵容变动，还是赛后复盘争议判罚的规则依据，一个经过整理的索引页面都能减少信息跳转的损耗。理想的体验是：读者在同一页面内完成“查询术语 → 理解规则背景 → 对照当前赛季版本”的链条，无需在多个标签页之间反复切换。<br>
+    这也是为什么页面采用窄正文宽度与清晰标题层级——尽可能降低视觉干扰，让注意力集中在内容的承接关系上。</p>
+
+    <!-- 小 FAQ 摘要（不喧宾夺主） -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <span class="q">规则对照是否包含最新修订？</span>
+            <span class="a">页面以年度为周期更新主要版本，重大规则变更会单独列出生效日期与原文链接。如需查证即时修订，建议同时参考对应项目联合会公告。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">术语延伸部分是否覆盖所有项目？</span>
+            <span class="a">目前以足球、篮球、网球、电竞及部分格斗项目为主，后续会根据查询频次扩展项目类别。每个词条会标注所属运动及常见歧义用法。</span>
+        </div>
+    </div>
+
+    <!-- 页尾提示 —— 自然引出链接 -->
+    <div class="page-footer">
+        <div>更多对照与延伸内容，可查阅 <a href="https://go-igamesport.com" class="inline-link">爱游戏体育</a> 的专题索引。</div>
+        <div style="font-size:0.8rem; opacity:0.65;">本页仅作信息梳理，不构成任何官方解读或建议</div>
+    </div>
+
+</div>
+</body>
+</html>
